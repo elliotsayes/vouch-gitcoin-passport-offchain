@@ -2,6 +2,9 @@
   import Confetti from "svelte-confetti";
   import { assign } from "@permaweb/aoconnect";
 
+  let isVouchProcessing = false;
+  let isVouchDone = false;
+
   export let address = "";
 
   async function checkGateway(e) {
@@ -52,8 +55,13 @@
   }
 
   async function vouchAO() {
+    isVouchProcessing = true;
     const vouch = "ZTTO02BL2P-lseTLUgiIPD9d0CF1sc4LbMA2AQ7e9jo";
-    const processes = await getProcesses(address);
+    const processes = await getProcesses(address).catch((err) => {
+      console.error(err);
+      globalThis.alert("Error Fetching Processes!");
+      isVouchProcessing = false;
+    });
     await Promise.all(
       processes.map((pid) =>
         fetch(
@@ -63,10 +71,18 @@
           }
         ).then((res) => res.json())
       )
-    ).then((res) => {
-      console.log(res);
-      globalThis.alert("Processes Vouched!");
-    });
+    )
+      .then((res) => {
+        console.log(res);
+        globalThis.alert("Processes Vouched!");
+        isVouchProcessing = false;
+        isVouchDone = true;
+      })
+      .catch((err) => {
+        console.error(err);
+        globalThis.alert("Error Vouching Processes!");
+        isVouchProcessing = false;
+      });
 
     /*
     const process = "L1CWfW_LAWA7UY_zf9CFwbnt3wLuVMEueylFi_1YACo";
@@ -145,8 +161,15 @@
         Vouch your "ao" process
       </div>
       <button
-        class="px-[22px] py-3 bg-indigo-500 rounded-xl shadow border justify-start items-start inline-flex text-white"
-        on:click={vouchAO}>VOUCH AO PROCESSES</button
+        class={`px-[22px] py-3 bg-indigo-500 rounded-xl shadow border justify-start items-start inline-flex text-white ${
+          isVouchDone
+            ? "cursor-not-allowed opacity-50"
+            : isVouchProcessing
+              ? "cursor-wait animate-pulse"
+              : "cursor-pointer"
+        }`}
+        on:click={isVouchDone || isVouchProcessing ? null : vouchAO}
+        >{isVouchDone ? "AO PROCESSES VOUCHED!" : "VOUCH AO PROCESSES"}</button
       >
     </div>
     <div
