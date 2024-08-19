@@ -56,10 +56,13 @@
     const processes = await getProcesses(address);
     await Promise.all(
       processes.map((pid) =>
-        fetch(`https://su-router.ao-testnet.xyz?process-id=${vouch}&assign=${pid}`, {
-          method: "POST",
-        }).then((res) => res.json()),
-      ),
+        fetch(
+          `https://su-router.ao-testnet.xyz?process-id=${vouch}&assign=${pid}`,
+          {
+            method: "POST",
+          }
+        ).then((res) => res.json())
+      )
     ).then((res) => {
       console.log(res);
       globalThis.alert("Processes Vouched!");
@@ -106,15 +109,25 @@
   <div class="flex-col justify-start items-start gap-[25px] flex">
     <div class="w-12 h-12 relative">
       <svg
-        width="29"
-        height="26"
-        viewBox="0 0 29 26"
+        width="52"
+        height="52"
+        viewBox="0 0 429 214"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M22.8392 0H27.2861L17.571 11.0133L29 26H20.0512L13.0421 16.9107L5.0222 26H0.57266L10.9639 14.22L0 0H9.17601L15.5116 8.308L22.8392 0ZM21.2785 23.36H23.7425L7.83711 2.50133H5.19293L21.2785 23.36Z"
-          fill="#1E1D22"
+          d="M0 214H71.3763L85.9429 174.61L53.1681 107.5L0 214Z"
+          fill="black"
+        />
+        <path
+          d="M189.366 160.75L109.978 1L85.9429 55.7089L160.961 214H215L189.366 160.75Z"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M322 214C381.094 214 429 166.094 429 107C429 47.9055 381.094 0 322 0C262.906 0 215 47.9055 215 107C215 166.094 262.906 214 322 214ZM322 172C357.899 172 387 142.899 387 107C387 71.1015 357.899 42 322 42C286.101 42 257 71.1015 257 107C257 142.899 286.101 172 322 172Z"
+          fill="black"
         />
       </svg>
     </div>

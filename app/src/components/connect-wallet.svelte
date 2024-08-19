@@ -11,27 +11,24 @@
     }
     await globalThis.arweaveWallet.connect(["ACCESS_ADDRESS"]);
     $address = await globalThis.arweaveWallet.getActiveAddress();
-    fetch("https://4000-permaweb-vouchx-2zoe05600qn.ws-us106.gitpod.io/vouch", {
-      method: "post",
-    }).then((result) => console.log(result));
-    router.goto("/signin");
+    router.goto("/verify-ao");
   }
 
   async function arweaveApp() {
     const wallet = new ArweaveWebWallet({
-      name: "VouchX",
+      name: "VouchAoBalance",
     });
     wallet.setUrl("arweave.app");
     await wallet.connect();
     $address = await globalThis.arweaveWallet.getActiveAddress();
-    router.goto("/signin");
+    router.goto("/verify-ao");
   }
 
   async function othentConnect() {
     const result = await connect();
     //console.log("result: ", result);
     $address = result.walletAddress;
-    router.goto("/signin");
+    router.goto("/verify-ao");
   }
 </script>
 

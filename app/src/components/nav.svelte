@@ -52,31 +52,41 @@
 
       <div class="p-2.5 justify-center items-center gap-6 inline-flex">
         <div
-          class="w-12 h-12 p-2 {$router.path === '/signin'
+          class="w-12 h-12 p-2 {$router.path === '/verify-ao'
             ? 'bg-indigo-500'
             : 'bg-zinc-100'} rounded-[9px] justify-center items-center gap-2.5 flex"
         >
           <div class="w-6 h-6 relative">
             <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
+              width="26"
+              height="26"
+              viewBox="0 0 429 214"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M18.2439 2.25H21.5519L14.3249 10.51L22.8269 21.75H16.1699L10.9559 14.933L4.98991 21.75H1.67991L9.40991 12.915L1.25391 2.25H8.07991L12.7929 8.481L18.2439 2.25ZM17.0829 19.77H18.9159L7.08391 4.126H5.11691L17.0829 19.77Z"
-                fill={$router.path === "/signin" ? "white" : "#73747A"}
+                d="M0 214H71.3763L85.9429 174.61L53.1681 107.5L0 214Z"
+                fill={$router.path === "/verify-ao" ? "white" : "#73747A"}
+              />
+              <path
+                d="M189.366 160.75L109.978 1L85.9429 55.7089L160.961 214H215L189.366 160.75Z"
+                fill={$router.path === "/verify-ao" ? "white" : "#73747A"}
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M322 214C381.094 214 429 166.094 429 107C429 47.9055 381.094 0 322 0C262.906 0 215 47.9055 215 107C215 166.094 262.906 214 322 214ZM322 172C357.899 172 387 142.899 387 107C387 71.1015 357.899 42 322 42C286.101 42 257 71.1015 257 107C257 142.899 286.101 172 322 172Z"
+                fill={$router.path === "/verify-ao" ? "white" : "#73747A"}
               />
             </svg>
           </div>
         </div>
         <div
-          class="{$router.path === '/signin'
+          class="{$router.path === '/verify-ao'
             ? 'text-zinc-900'
             : 'text-zinc-500'}  text-[21px] font-medium font-['Satoshi'] tracking-wide"
         >
-          Sign-In With X
+          Verify AO Balance
         </div>
       </div>
     </div>

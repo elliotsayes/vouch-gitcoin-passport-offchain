@@ -1,39 +1,26 @@
 <script>
   import { address } from "../store.js";
-  //const AUTH_SERVICE = "https://4000-permaweb-vouchx-2zoe05600qn.ws-us106.gitpod.io";
-  const AUTH_SERVICE = "https://vouch-x.onrender.com";
+  const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
 
   function login() {
     const addr = $address;
     console.log("address: ", addr);
-    globalThis.location.href = `${AUTH_SERVICE}/x?address=${addr}&callback=${encodeURI(
+    const redirect = `${SERVER_ADDRESS}/vouch?address=${addr}&callback=${encodeURI(
       globalThis.location.href
     )}`;
+    console.log("redirect: ", redirect);
+    globalThis.location.href = redirect;
   }
 </script>
 
 <div class="flex-col justify-start items-start gap-[37px] flex">
   <div class="flex-col justify-start items-start gap-[25px] flex">
-    <div class="w-12 h-12 relative">
-      <svg
-        width="29"
-        height="26"
-        viewBox="0 0 29 26"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M22.8392 0H27.2861L17.571 11.0133L29 26H20.0512L13.0421 16.9107L5.0222 26H0.57266L10.9639 14.22L0 0H9.17601L15.5116 8.308L22.8392 0ZM21.2785 23.36H23.7425L7.83711 2.50133H5.19293L21.2785 23.36Z"
-          fill="#1E1D22"
-        />
-      </svg>
-    </div>
     <div class="w-[912px] pb-[23px] justify-center items-center inline-flex">
       <div
         class="w-[912px] text-zinc-400 text-[17px] font-normal font-['Satoshi'] tracking-tight"
       >
-        Now that you connected your wallet, verify your X account to prove your
-        online public identity and get vouched on the permaweb.
+        Now that you connected your wallet, verify your AO balance to prove your
+        credibility on the permaweb.
       </div>
     </div>
   </div>
@@ -44,7 +31,7 @@
       <div
         class="text-zinc-900 text-[19px] font-medium font-['Satoshi'] tracking-tight"
       >
-        Connect your X Account.
+        Verify your AO Balance.
       </div>
     </div>
     <button
@@ -58,19 +45,47 @@
           <svg
             width="26"
             height="26"
-            viewBox="0 0 26 26"
+            viewBox="0 0 429 214"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M11.8134 7H14.1135L9.08844 12.5067L15 20H10.3713L6.74593 15.4553L2.59769 20H0.296204L5.67098 14.11L0 7H4.74621L8.02322 11.154L11.8134 7ZM11.0061 18.68H12.2806L4.05368 8.25067H2.686L11.0061 18.68Z"
+              d="M0 214H71.3763L85.9429 174.61L53.1681 107.5L0 214Z"
               fill="white"
             />
             <path
-              d="M22.0705 17.7944L19.4537 19.9813C19.3263 20.0874 19.2316 20.2247 19.1797 20.3785C19.1277 20.5323 19.1206 20.6968 19.1589 20.8542L19.9452 24.1123L16.9819 22.3899C16.8374 22.3056 16.6713 22.261 16.5021 22.261C16.3328 22.261 16.1668 22.3056 16.0222 22.3899L13.063 24.1123L13.844 20.8564C13.8824 20.699 13.8753 20.5345 13.8233 20.3807C13.7714 20.2269 13.6766 20.0896 13.5493 19.9835L10.9313 17.7977C10.9311 17.796 10.9311 17.7943 10.9313 17.7927L14.3802 17.5071C14.5486 17.4929 14.7097 17.4349 14.8462 17.3394C14.9827 17.244 15.0894 17.1146 15.1548 16.9654L16.5015 13.8933L17.8476 16.9654C17.913 17.1146 18.0197 17.244 18.1562 17.3394C18.2927 17.4349 18.4538 17.4929 18.6222 17.5071L22.0717 17.7927V17.7966L22.0705 17.7944Z"
-              fill="#FCC500"
+              d="M189.366 160.75L109.978 1L85.9429 55.7089L160.961 214H215L189.366 160.75Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M322 214C381.094 214 429 166.094 429 107C429 47.9055 381.094 0 322 0C262.906 0 215 47.9055 215 107C215 166.094 262.906 214 322 214ZM322 172C357.899 172 387 142.899 387 107C387 71.1015 357.899 42 322 42C286.101 42 257 71.1015 257 107C257 142.899 286.101 172 322 172Z"
+              fill="white"
             />
           </svg>
+          <!-- <svg
+            width="24"
+            height="11.97"
+            viewBox="0 0 429 214"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 214H71.3763L85.9429 174.61L53.1681 107.5L0 214Z"
+              fill="black"
+            />
+            <path
+              d="M189.366 160.75L109.978 1L85.9429 55.7089L160.961 214H215L189.366 160.75Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M322 214C381.094 214 429 166.094 429 107C429 47.9055 381.094 0 322 0C262.906 0 215 47.9055 215 107C215 166.094 262.906 214 322 214ZM322 172C357.899 172 387 142.899 387 107C387 71.1015 357.899 42 322 42C286.101 42 257 71.1015 257 107C257 142.899 286.101 172 322 172Z"
+              fill="black"
+            />
+          </svg> -->
 
           <div class="text-white text-[17px] font-medium font-['Satoshi']">
             Connect

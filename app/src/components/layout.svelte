@@ -72,7 +72,7 @@
           href="/"
           class="text-zinc-900 text-[40px] font-medium font-['Satoshi'] tracking-wide"
         >
-          VouchX
+          Vouch AO Balance
         </a>
       </div>
       <div class="justify-start items-center gap-[17px] inline-flex">

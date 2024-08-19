@@ -1,9 +1,9 @@
-# VouchX App
+# VouchAoBalance App
 
 this app walks through a three step process to "Vouch" a user.
 
 Step 1: Connect Wallet
-Step 2: SignIn with X
+Step 2: Verify AO Balance
 Step 3: Vouch Wallet
 
 ## Stack
@@ -22,7 +22,7 @@ Step 3: Vouch Wallet
 | nav.svelte | src/components | navigation sidebar |
 | layout.svelte | src/components | application layout |
 | connect-wallet.svelte | src/components | connect wallet ux |
-| signin-x.svelte | src/components | authorize with X/Twitter |
+| vouch.svelte | src/components | prompt to vouch AO balance |
 | success.svelte | src/components | successfully vouched wallet |
 
 
