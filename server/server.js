@@ -3,7 +3,7 @@ import session from 'express-session'
 import cors from 'cors'
 
 import { status } from './routes/status.js'
-import { login, callback } from './routes/x.js'
+import { vouch } from './routes/vouch.js'
 
 const app = express()
 
@@ -18,7 +18,9 @@ app.use(session({
 
 /** Routes */
 app.get('/', status)
-app.get('/x', login)
-app.get('/x/callback', callback)
+app.get('/vouch', vouch)
 
-app.listen(4000)
+const port = process.env.PORT || 4000
+app.listen(port).on('listening', () => {
+  console.log(`Server is listening on port ${port}`)
+})

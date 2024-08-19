@@ -10,7 +10,7 @@ export async function sendMessage({ address, transaction, username, value }) {
   const tags = [
     { name: 'Data-Protocol', value: 'Vouch' },
     { name: 'Vouch-For', value: address },
-    { name: 'Method', value: 'X' },
+    { name: 'Method', value: 'AO-Balance' },
     { name: 'Confidence-Value', value: String(value) + '-USD' },
     { name: 'Identifier', value: username }
   ];
