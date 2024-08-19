@@ -52,7 +52,7 @@
       <div
         class="w-[912px] text-zinc-400 text-[17px] font-normal font-['Satoshi'] tracking-tight"
       >
-        Connect your Arweave wallet to get yourself vouched using this VouchX
+        Connect your Arweave wallet to get yourself vouched using this Vouch
         service.
       </div>
     </div>
