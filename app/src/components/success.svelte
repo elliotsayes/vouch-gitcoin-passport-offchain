@@ -6,11 +6,12 @@
   let isVouchDone = false;
 
   export let address = "";
+  export let message = "";
 
   async function checkGateway(e) {
     e.preventDefault();
-    const targetUrl = globalThis.location.origin.includes("vouch-twitter")
-      ? globalThis.location.origin.replace("vouch-twitter", "now")
+    const targetUrl = globalThis.location.origin.includes("vouch-ao-balance")
+      ? globalThis.location.origin.replace("vouch-ao-balance", "now")
       : "https://now.g8way.io";
 
     fetch(targetUrl, { method: "HEAD" }).then((res) => {
@@ -151,7 +152,9 @@
       <div
         class="w-[912px] text-zinc-400 text-[17px] font-normal font-['Satoshi'] tracking-tight"
       >
-        Congrats! You are successfully vouched on the Permaweb!
+        {message.length > 0
+          ? message
+          : "Congrats! You are successfully vouched on the Permaweb!"}
       </div>
     </div>
     <div

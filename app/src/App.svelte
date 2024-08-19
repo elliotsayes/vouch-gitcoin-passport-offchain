@@ -22,7 +22,10 @@
       path="/success"
       let:meta
     >
-      <Success address={meta.query.address} />
+      <Success
+        address={meta.query.address}
+        message={decodeURIComponent(meta.query.message)}
+      />
     </Route>
     <Route path="/aos">
       <Ao />

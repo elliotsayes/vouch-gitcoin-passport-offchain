@@ -21,6 +21,9 @@ export function vouch(req, res) {
         res.redirect(callback + '#/success?address=' + address)
       }).catch((err) => {
         console.error('Error:', err)
+        if(err.message === 'Already vouched!') {
+          return res.redirect(callback + `#/success?address=${address}&message=${encodeURIComponent(err.message)}`)
+        }
         res.redirect(callback + '#/error?message=' + 'Error vouching: ' + err.message)
       })
     } else {
