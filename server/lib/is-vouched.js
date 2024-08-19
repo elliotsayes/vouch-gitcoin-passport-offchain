@@ -8,9 +8,9 @@ export async function isVouched({ address }) {
     .search("arweave:transactions")
     .from([voucherAddress])
     .tags([
-      { name: 'Data-Protocol', values: 'Vouch-For' },
-      { name: 'Vouch-For', values: [address] },
-      { name: 'Method', values: ['AO-Balance'] },
+      { name: 'Data-Protocol', values: 'Vouch' },
+      { name: 'Vouch-For', values: address },
+      { name: 'Method', values: 'AO-Balance' },
     ])
   if (results.length > 0) {
     return { ok: true }
