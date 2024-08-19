@@ -4,7 +4,7 @@ import fs from 'fs'
 const key = JSON.parse(fs.readFileSync(process.env.WALLET, 'utf-8'))
 
 
-export async function sendMessage({ address, transaction, username, value }) {
+export async function sendMessage({ address, transaction, value }) {
   console.log('SEND TO AOS: ')
   const processId = process.env.VOUCH_DAO_PROCESS_ID || 'L1CWfW_LAWA7UY_zf9CFwbnt3wLuVMEueylFi_1YACo'
   const tags = [
@@ -12,7 +12,6 @@ export async function sendMessage({ address, transaction, username, value }) {
     { name: 'Vouch-For', value: address },
     { name: 'Method', value: 'AO-Balance' },
     { name: 'Confidence-Value', value: String(value) + '-USD' },
-    { name: 'Identifier', value: username }
   ];
   console.log("tags: ", tags)
   const messageId = await message({
