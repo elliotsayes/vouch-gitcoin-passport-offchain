@@ -1,6 +1,6 @@
-# VouchX Server
+# Vouch-AO-Balance Server
 
-This server is a simple service that provides the ability to authorize users onm twitter via OAuth and then vouch for approved wallet addresses.
+This server is a simple service that provides the ability to verify the wallets AO balance and then vouch for approved wallet addresses.
 
 ## Deployment
 
@@ -12,11 +12,10 @@ The .env file contains some settings to be configured for the service to work pr
 
 | Name | Description |
 | --- | --- |
-| CONSUMER_KEY | Twitter Dev Account CONSUMER KEY |
-| CONSUMER_SECRET | Twitter Dev Account CONSUMER SECRET |
-| CALLBACK_URL | Url that is going to receive the call back from X OAuth |
 | WALLET | Path to the wallet.json file |
+| VOUCHER_ADDRESS | Address of the voucher wallet |
 | VOUCH_CONTRACT | Contract associated with the vouch dao |
+| VOUCH_DAO_PROCESS_ID | Process id for the vouch dao |
 
 ## DevSetup
 
