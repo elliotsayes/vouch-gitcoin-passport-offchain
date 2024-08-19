@@ -21,13 +21,13 @@ export function vouch(req, res) {
         res.redirect(callback + '#/success?address=' + address)
       }).catch((err) => {
         console.error('Error:', err)
-        res.redirect(callback + '#/error?message=' + 'Error Vouching: ' + err.message)
+        res.redirect(callback + '#/error?message=' + 'Error vouching: ' + err.message)
       })
     } else {
       res.redirect(callback + '#/error?message=Insufficient AO Balance')
     }
   }).catch((err) => {
     console.error('Error:', err)
-    res.redirect(callback + '#/error?message=' + 'Error getting Balance: ' + err.message)
+    res.redirect(callback + '#/error?message=' + 'Error getting balance: ' + err.message)
   })
 }

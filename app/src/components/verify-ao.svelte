@@ -40,7 +40,7 @@
     <button
       on:click={isProcessing ? null : login}
       class={`flex-col justify-center items-start gap-[7px] flex ${
-        isProcessing ? "cursor-not-allowed animate-pulse" : "cursor-pointer"
+        isProcessing ? "cursor-wait animate-pulse" : "cursor-pointer"
       }`}
     >
       <div
