@@ -1,4 +1,5 @@
 import { aoBalance } from '../lib/ao-balance.js';
+import { calculate } from '../lib/calc-confidence-value.js';
 import { doVouch } from '../lib/index.js';
 
 const REGEX_ADDRESS = /[a-z0-9-_]{43}/i;
