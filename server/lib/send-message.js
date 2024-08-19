@@ -3,6 +3,9 @@ import fs from 'fs'
 
 const key = JSON.parse(fs.readFileSync(process.env.WALLET, 'utf-8'))
 
+function formatValue(value) {
+  return `${value.toFixed(2)}-USD`
+}
 
 export async function sendMessage({ address, transaction, value }) {
   console.log('SEND TO AOS: ')
@@ -11,7 +14,7 @@ export async function sendMessage({ address, transaction, value }) {
     { name: 'Data-Protocol', value: 'Vouch' },
     { name: 'Vouch-For', value: address },
     { name: 'Method', value: 'AO-Balance' },
-    { name: 'Confidence-Value', value: String(value) + '-USD' },
+    { name: 'Confidence-Value', value: formatValue(value) },
   ];
   console.log("tags: ", tags)
   const messageId = await message({
