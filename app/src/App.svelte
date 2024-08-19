@@ -34,7 +34,7 @@
       <h1 class="text-zinc-400 text-[30px]">
         There was an error with your request!
       </h1>
-      <p class="mt-16">{decodeURI(meta.query.msg)}</p>
+      <p class="mt-16">{decodeURI(meta.query.message)}</p>
     </Route>
   </div>
   <Nav slot="nav" />
