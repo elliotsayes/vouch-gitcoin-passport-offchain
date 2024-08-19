@@ -2,7 +2,10 @@
   import { address } from "../store.js";
   const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
 
+  let isProcessing = false;
+
   function login() {
+    isProcessing = true;
     const addr = $address;
     console.log("address: ", addr);
     const redirect = `${SERVER_ADDRESS}/vouch?address=${addr}&callback=${encodeURI(
@@ -35,8 +38,10 @@
       </div>
     </div>
     <button
-      on:click={login}
-      class="flex-col justify-center items-start gap-[7px] flex"
+      on:click={isProcessing ? null : login}
+      class={`flex-col justify-center items-start gap-[7px] flex ${
+        isProcessing ? "cursor-not-allowed animate-pulse" : "cursor-pointer"
+      }`}
     >
       <div
         class="px-[22px] py-3 bg-indigo-500 rounded-xl shadow border justify-start items-start inline-flex"
