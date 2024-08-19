@@ -93,7 +93,7 @@
           </svg> -->
 
           <div class="text-white text-[17px] font-medium font-['Satoshi']">
-            Connect
+            Verify Balance
           </div>
           <div class="w-[25px] h-[25px] relative">
             <svg
