@@ -16,7 +16,7 @@ export function vouch(req, res) {
   aoBalance({ address }).then((balance) => {
     console.log('Balance:', balance)
     if (balance > 0) {
-      doVouch(address, balance).then(() => {
+      doVouch(address, calculate({ balance })).then(() => {
         res.redirect(callback + '#/success?address=' + address)
       }).catch((err) => {
         console.error('Error:', err)
