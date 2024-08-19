@@ -161,7 +161,7 @@
       class="w-[701px] h-[175px] px-6 bg-gradient-to-b from-violet-50 to-white rounded-[18px] shadow-inner border-2 border-indigo-500 border-opacity-50 flex-col justify-center items-start gap-[49px] flex"
     >
       <div class="justify-center items-start gap-2.5 inline-flex">
-        Vouch your "ao" process
+        Vouch your AO processes
       </div>
       <button
         class={`px-[22px] py-3 bg-indigo-500 rounded-xl shadow border justify-start items-start inline-flex text-white ${
