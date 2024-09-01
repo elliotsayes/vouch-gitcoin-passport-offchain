@@ -1,9 +1,8 @@
-// constants
-const ARMSTRONG_MULTIPLIER = 1_000_000_000_000; // 10^12 -- 1 Trillion
-const AO_PRICE = 50;
+const aoMintFromStethPreTrade = (21_000_000 / 10) * 0.66
 
-export function calculate({ balance }) {
-  // calculateConfidenceValue.js
-  const confidenceValue = (balance / ARMSTRONG_MULTIPLIER) * AO_PRICE;
-  return confidenceValue;
+export function calculateConfidence({ stethTimeValue, aoBalance }) {
+  const proportionateAoBalance = aoBalance / aoMintFromStethPreTrade;
+  const proportionateStethTimeValue = stethTimeValue * proportionateAoBalance;
+
+  return proportionateStethTimeValue;
 }

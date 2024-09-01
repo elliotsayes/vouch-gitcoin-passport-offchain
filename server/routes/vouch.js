@@ -1,6 +1,7 @@
-import { aoBalance } from '../lib/ao-balance.js';
-import { calculate } from '../lib/calc-confidence-value.js';
+import { fetchAoBalance } from '../lib/ao-balance.js';
+import { calculateConfidence } from '../lib/calc-confidence-value.js';
 import { doVouch } from '../lib/index.js';
+import { stethTimeValue } from '../lib/steth-mint.js';
 
 const REGEX_ADDRESS = /[a-z0-9-_]{43}/i;
 
@@ -14,10 +15,10 @@ export function vouch(req, res) {
     return res.redirect(callback + '#/error?message=Invalid address')
   }
 
-  aoBalance({ address }).then((balance) => {
+  fetchAoBalance({ address }).then((balance) => {
     console.log('Balance:', balance)
     if (balance > 0) {
-      doVouch(address, calculate({ balance })).then(() => {
+      doVouch(address, calculateConfidence({ stethTimeValue, balance })).then(() => {
         res.redirect(callback + '#/success?address=' + address)
       }).catch((err) => {
         console.error('Error:', err)

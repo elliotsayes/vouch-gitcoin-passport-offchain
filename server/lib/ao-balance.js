@@ -1,8 +1,10 @@
 import { dryrun } from "@permaweb/aoconnect"
+import { bigintDivide } from "./bigint.js";
 
 const AO_TOKEN = process.env.AO_TOKEN || "m3PaWzK4PTG9lAaqYQPaPdOcXdO8hYqi5Fe9NWqXd0w"
+const ARMSTRONG_MULTIPLIER = BigInt(10) ** BigInt(12) // 10^12 -- 1 Trillion
 
-export async function aoBalance({ address }) {
+export async function fetchAoBalance({ address }) {
   const balanceResult = await dryrun({
     process: AO_TOKEN,
     tags: [
@@ -21,7 +23,8 @@ export async function aoBalance({ address }) {
   if (balanceTag === undefined) {
     throw new Error(`No balance in reply from AO`)
   }
-  const balance = balanceTag.value;
+  const balanceArmstrong = BigInt(balanceTag.value);
+  const balance = bigintDivide(balanceArmstrong, ARMSTRONG_MULTIPLIER, 5);
   
   return balance;
 }
