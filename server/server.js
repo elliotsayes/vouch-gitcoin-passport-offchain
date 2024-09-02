@@ -11,7 +11,7 @@ const app = express()
 app.use(cors())
 app.set('trust proxy', 1)
 app.use(session({
-  secret: 'chocolate milk',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: { secure: true }
