@@ -24,7 +24,7 @@
     >
       <Success
         address={meta.query.address}
-        message={decodeURIComponent(meta.query.message)}
+        message={decodeURIComponent(meta.query.message ?? "")}
       />
     </Route>
     <Route path="/aos">
