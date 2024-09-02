@@ -15,10 +15,18 @@ export function vouch(req, res) {
     return res.redirect(callback + '#/error?message=Invalid address')
   }
 
-  fetchAoBalance({ address }).then((balance) => {
-    console.log('Balance:', balance)
-    if (balance > 0) {
-      doVouch(address, calculateConfidence({ stethTimeValue, balance })).then(() => {
+  fetchAoBalance({ address }).then((aoBalance) => {
+    console.log('Balance:', aoBalance)
+    if (aoBalance > 0) {
+      const confidenceValue = calculateConfidence({ stethTimeValue, aoBalance })
+      console.log('Confidence Value:', confidenceValue)
+      if (isNaN(confidenceValue)) {
+        return res.redirect(callback + '#/error?message=Invalid Confidence Value')
+      }
+      if (confidenceValue < 0.01) {
+        return res.redirect(callback + '#/error?message=Insufficient AO Balance')
+      }
+      doVouch(address, confidenceValue).then(() => {
         res.redirect(callback + '#/success?address=' + address)
       }).catch((err) => {
         console.error('Error:', err)
