@@ -2,6 +2,7 @@ import { fetchAoBalance } from '../lib/ao-balance.js';
 import { calculateConfidence } from '../lib/calc-confidence-value.js';
 import { doVouch } from '../lib/index.js';
 import { bridgedTimeValue } from '../lib/bridged-mint.js';
+import { preTradeEndTime } from '../lib/calc-confidence-value.js';
 
 const REGEX_ADDRESS = /[a-z0-9-_]{43}/i;
 
