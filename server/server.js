@@ -27,7 +27,7 @@ updateBridgedTimeValue().then(
   () => app.listen(port).on('listening', () => {
     console.log(`Server is listening on port ${port}`);
 
-    // Update bridgedTimeValue every 5 minutes
-    setInterval(updateBridgedTimeValue, 1000 * 60 * 5)
+    // Update bridgedTimeValue every hour
+    setInterval(updateBridgedTimeValue, 1000 * 60 * 60 * 1)
   }),
 )
