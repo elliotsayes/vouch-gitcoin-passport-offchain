@@ -3,10 +3,9 @@ import { calculateConfidence } from '../lib/calc-confidence-value.js';
 import { doVouch } from '../lib/index.js';
 import { bridgedTimeValue } from '../lib/bridged-mint.js';
 import { aoTokenSupply } from '../lib/ao-supply.js';
+import { preTradeEndTime } from '../lib/bridged-mint.js';
 
 const REGEX_ADDRESS = /[a-z0-9-_]{43}/i;
-
-export const preTradeEndTime = new Date(2025, 1, 1).getTime();
 
 export function vouch(req, res) {
   const address = req.query.address;

@@ -2,9 +2,9 @@ import { test } from 'node:test'
 import * as assert from 'assert'
 import { calculateConfidence } from '../lib/calc-confidence-value.js'
 
-const exampleBridgedTimeValue = 27006452.051718235
+const exampleBridgedTimeValue = 8901040.286437832
 const exampleAoBalance = 0.4183
-const exampleAoTokenSupply = 1855692.1321972655
+const exampleAoTokenSupply = 1855944.4254394532
 
 test('calculate the correct confidence value for some ao', () => {
   const value = calculateConfidence({
@@ -13,5 +13,5 @@ test('calculate the correct confidence value for some ao', () => {
     aoTokenSupply: exampleAoTokenSupply,
   })
   console.log('Confidence Value:', value)
-  assert.strictEqual(value, 13.314179947953184)
+  assert.strictEqual(value, 4.387343718669507)
 });
