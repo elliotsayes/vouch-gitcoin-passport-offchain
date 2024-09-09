@@ -2,7 +2,7 @@ import { bigintDivide } from "./bigint.js"
 
 const WEI_MULTIPLIER = BigInt(10) ** BigInt(18)
 
-export async function stEthTokenAccountBalance({ token, address }) {
+export async function ercTokenAccountBalance({ token, address }) {
   const url = `https://api.etherscan.io/api?module=account&&action=tokenbalance&contractaddress=${token}&address=${address}&tag=latest&apikey=${process.env.ETHERSCAN_API_KEY}`
   console.log(`Etherscan API: ${url}`)
   
