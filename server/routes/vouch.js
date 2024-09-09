@@ -2,9 +2,11 @@ import { fetchAoBalance } from '../lib/ao-balance.js';
 import { calculateConfidence } from '../lib/calc-confidence-value.js';
 import { doVouch } from '../lib/index.js';
 import { bridgedTimeValue } from '../lib/bridged-mint.js';
-import { preTradeEndTime } from '../lib/calc-confidence-value.js';
+import { aoTokenSupply } from '../lib/ao-supply.js';
 
 const REGEX_ADDRESS = /[a-z0-9-_]{43}/i;
+
+export const preTradeEndTime = new Date(2025, 1, 1).getTime();
 
 export function vouch(req, res) {
   const address = req.query.address;
@@ -24,7 +26,7 @@ export function vouch(req, res) {
   fetchAoBalance({ address }).then((aoBalance) => {
     console.log('Balance:', aoBalance)
     if (aoBalance > 0) {
-      const confidenceValue = calculateConfidence({ bridgedTimeValue, aoBalance, now })
+      const confidenceValue = calculateConfidence({ bridgedTimeValue, aoTokenSupply, aoBalance })
       console.log('Confidence Value:', confidenceValue)
       if (isNaN(confidenceValue)) {
         return res.redirect(callback + '#/error?message=Invalid Confidence Value')
