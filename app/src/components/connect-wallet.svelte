@@ -4,7 +4,6 @@
   import { ArweaveWebWallet } from "arweave-wallet-connector";
   import { connect, getActiveKey } from "@othent/kms";
   import { router } from "tinro";
-  import { address } from "../store.js";
 
   async function arConnect() {
     if (!globalThis.arweaveWallet) {
@@ -12,8 +11,8 @@
       return;
     }
     await globalThis.arweaveWallet.connect(["ACCESS_ADDRESS"]);
-    $address = await globalThis.arweaveWallet.getActiveAddress();
-    handleNextStep();
+    const address = await globalThis.arweaveWallet.getActiveAddress();
+    handleNextStep(address);
   }
 
   async function arweaveApp() {
@@ -22,22 +21,22 @@
     });
     wallet.setUrl("arweave.app");
     await wallet.connect();
-    $address = await globalThis.arweaveWallet.getActiveAddress();
-    handleNextStep();
+    const address = await globalThis.arweaveWallet.getActiveAddress();
+    handleNextStep(address);
   }
 
   async function othentConnect() {
     const result = await connect();
     //console.log("result: ", result);
-    $address = result.walletAddress;
-    handleNextStep();
+    const address = result.walletAddress;
+    handleNextStep(address);
   }
 
   let isProcessing = false;
 
-  function handleNextStep() {
+  function handleNextStep(arAddress) {
     isProcessing = true;
-    const redirect = `${SERVER_ADDRESS}/signing-message?&callback=${encodeURI(
+    const redirect = `${SERVER_ADDRESS}/signing-message?arAddress=${arAddress}&callback=${encodeURI(
       globalThis.location.href
     )}`;
     console.log("redirect: ", redirect);

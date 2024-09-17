@@ -1,11 +1,20 @@
-const aoFullyDilutedTokenSupply = 21_000_000;
-const aoFromArPreBridgedAssets = aoFullyDilutedTokenSupply * 0.0277; // TODO: Confirm this constant
+const minScore = 10;
+const scoreMultiplier = 0.1;
 
-export function calculateConfidence({ bridgedTimeValue, aoTokenSupply, aoBalance }) {
-  const aoToDateFromBridgedAssets = (aoTokenSupply - aoFromArPreBridgedAssets) * 0.666;
+export function calculateConfidence(passportResponse) {
+  if (!passportResponse || passportResponse.status !== "DONE") {
+    throw new Error('Invalid passport response')
+  }
 
-  const proportionateAoBalance = aoBalance / aoToDateFromBridgedAssets;
-  const proportionateBridgedTimeValue = bridgedTimeValue * proportionateAoBalance;
+  const score = parseFloat(passportResponse.score)
 
-  return proportionateBridgedTimeValue;
+  if (isNaN(score)) {
+    throw new Error('Invalid score')
+  }
+
+  if (score < minScore) {
+    return 0
+  }
+
+  return score * scoreMultiplier;
 }

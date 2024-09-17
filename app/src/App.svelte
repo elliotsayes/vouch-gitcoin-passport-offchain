@@ -20,6 +20,7 @@
       let:meta
     >
       <VerifyPassport
+        arAddress={meta.query.arAddress}
         signingMessage={JSON.parse(
           decodeURIComponent(meta.query.signingMessage)
         )}

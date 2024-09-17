@@ -1,10 +1,10 @@
 <script>
+  export let arAddress = "";
   export let signingMessage = {
     message: "",
     nonce: "",
   };
 
-  import { address } from "../store.js";
   const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
   import Onboard from "@web3-onboard/core";
   import injectedModule from "@web3-onboard/injected-wallets";
@@ -35,6 +35,7 @@
     const wallet = wallets[0];
 
     if (!wallet) return alert("No wallet selected");
+    const ethAddress = wallet.accounts[0].address;
 
     // create an ethers provider with the last connected wallet provider
     const ethersProvider = new ethers.BrowserProvider(wallet.provider, "any");
@@ -49,14 +50,13 @@
       nonce: signingMessage.nonce,
     };
     console.log("signingSignature: ", signingSignature);
-    handleNextStep(signingSignature);
+    handleNextStep(ethAddress, signingSignature);
   }
 
-  function handleNextStep(signingSignature) {
+  function handleNextStep(ethAddress, signingSignature) {
     isProcessing = true;
-    const addr = $address;
-    console.log("address: ", addr);
-    const redirect = `${SERVER_ADDRESS}/vouch?address=${addr}&signingSignature=${encodeURIComponent(
+    console.log("address: ", arAddress);
+    const redirect = `${SERVER_ADDRESS}/vouch?arAddress=${arAddress}&ethAddress=${ethAddress}&signingSignature=${encodeURIComponent(
       JSON.stringify(signingSignature)
     )}&callback=${encodeURI(globalThis.location.href)}`;
     console.log("redirect: ", redirect);
