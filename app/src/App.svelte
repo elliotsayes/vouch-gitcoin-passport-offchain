@@ -2,7 +2,7 @@
   import { Route, router } from "tinro";
   import Layout from "./components/layout.svelte";
   import Connect from "./components/connect-wallet.svelte";
-  import VerifyPassport from "./components/verify-ao.svelte";
+  import VerifyPassport from "./components/verify-passport.svelte";
   import Success from "./components/success.svelte";
   import Ao from "./components/ao.svelte";
   import Nav from "./components/nav.svelte";
