@@ -2,8 +2,8 @@
 
 this app walks through a three step process to "Vouch" a user.
 
-Step 1: Connect Wallet
-Step 2: Verify AO Balance
+Step 1: Connect Arweave Wallet
+Step 2: Verify Gitcoin Passport
 Step 3: Vouch Wallet
 
 ## Stack

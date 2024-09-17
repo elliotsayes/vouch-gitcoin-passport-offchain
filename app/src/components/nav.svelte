@@ -86,7 +86,7 @@
             ? 'text-zinc-900'
             : 'text-zinc-500'}  text-[21px] font-medium font-['Satoshi'] tracking-wide"
         >
-          Verify AO Balance
+          Verify Gitcoin Passport
         </div>
       </div>
     </div>

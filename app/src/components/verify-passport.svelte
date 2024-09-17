@@ -27,8 +27,8 @@
       <div
         class="w-[912px] text-zinc-400 text-[17px] font-normal font-['Satoshi'] tracking-tight"
       >
-        Now that you connected your wallet, verify your AO balance to prove your
-        credibility on the permaweb.
+        Now that you connected your Arweave wallet, verify your Gitcoin Passport
+        to prove your credibility on the permaweb.
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@
       <div
         class="text-zinc-900 text-[19px] font-medium font-['Satoshi'] tracking-tight"
       >
-        Verify your AO Balance.
+        Verify your Gitcoin Passport.
       </div>
     </div>
     <button
@@ -98,7 +98,7 @@
           </svg> -->
 
           <div class="text-white text-[17px] font-medium font-['Satoshi']">
-            Verify Balance
+            Connect Ethereum Wallet
           </div>
           <div class="w-[25px] h-[25px] relative">
             <svg
