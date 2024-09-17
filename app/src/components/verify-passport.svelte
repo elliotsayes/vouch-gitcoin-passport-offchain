@@ -6,16 +6,59 @@
 
   import { address } from "../store.js";
   const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
+  import Onboard from "@web3-onboard/core";
+  import injectedModule from "@web3-onboard/injected-wallets";
+  import { ethers } from "ethers";
+
+  const MAINNET_RPC_URL = "https://mainnet.infura.io/v3/<INFURA_KEY>";
+
+  const injected = injectedModule();
+
+  const onboard = Onboard({
+    wallets: [injected],
+    chains: [
+      {
+        id: "0x1",
+        token: "ETH",
+        label: "Ethereum Mainnet",
+        rpcUrl: MAINNET_RPC_URL,
+      },
+    ],
+  });
 
   let isProcessing = false;
 
-  function login() {
+  async function handleConnectEthereum() {
+    isProcessing = true;
+
+    const wallets = await onboard.connectWallet();
+    const wallet = wallets[0];
+
+    if (!wallet) return alert("No wallet selected");
+
+    // create an ethers provider with the last connected wallet provider
+    const ethersProvider = new ethers.BrowserProvider(wallet.provider, "any");
+
+    const signer = await ethersProvider.getSigner();
+
+    // sign the message
+    console.log(signer);
+    const signature = await signer.signMessage(signingMessage.message);
+    const signingSignature = {
+      signature: signature,
+      nonce: signingMessage.nonce,
+    };
+    console.log("signingSignature: ", signingSignature);
+    handleNextStep(signingSignature);
+  }
+
+  function handleNextStep(signingSignature) {
     isProcessing = true;
     const addr = $address;
     console.log("address: ", addr);
-    const redirect = `${SERVER_ADDRESS}/vouch?address=${addr}&callback=${encodeURI(
-      globalThis.location.href
-    )}`;
+    const redirect = `${SERVER_ADDRESS}/vouch?address=${addr}&signingSignature=${encodeURIComponent(
+      JSON.stringify(signingSignature)
+    )}&callback=${encodeURI(globalThis.location.href)}`;
     console.log("redirect: ", redirect);
     globalThis.location.href = redirect;
   }
@@ -43,7 +86,7 @@
       </div>
     </div>
     <button
-      on:click={isProcessing ? null : login}
+      on:click={isProcessing ? null : handleConnectEthereum}
       class={`flex-col justify-center items-start gap-[7px] flex ${
         isProcessing ? "cursor-wait animate-pulse" : "cursor-pointer"
       }`}
