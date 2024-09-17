@@ -3,7 +3,8 @@ import session from 'express-session'
 import cors from 'cors'
 
 import { status } from './routes/status.js'
-import { vouch } from './routes/vouch.js'
+// import { vouch } from './routes/vouch.js'
+import { signingMessage } from './routes/signingMessage.js'
 
 const app = express()
 
@@ -18,7 +19,8 @@ app.use(session({
 
 /** Routes */
 app.get('/', status)
-app.get('/vouch', vouch)
+// app.get('/vouch', vouch)
+app.get('/signing-message', signingMessage)
 
 const port = process.env.PORT || 4000;
 

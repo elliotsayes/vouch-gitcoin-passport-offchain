@@ -72,7 +72,7 @@
           href="/"
           class="text-zinc-900 text-[40px] font-medium font-['Satoshi'] tracking-wide"
         >
-          Vouch AO Balance
+          Vouch Gitcoin Passport
         </a>
       </div>
       <div class="justify-start items-center gap-[17px] inline-flex">

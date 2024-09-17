@@ -22,7 +22,7 @@ Step 3: Vouch Wallet
 | nav.svelte | src/components | navigation sidebar |
 | layout.svelte | src/components | application layout |
 | connect-wallet.svelte | src/components | connect wallet ux |
-| vouch.svelte | src/components | prompt to vouch AO balance |
+| vouch.svelte | src/components | prompt to Vouch Gitcoin Passport |
 | success.svelte | src/components | successfully vouched wallet |
 
 

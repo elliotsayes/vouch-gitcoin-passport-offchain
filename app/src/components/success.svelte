@@ -10,8 +10,10 @@
 
   async function checkGateway(e) {
     e.preventDefault();
-    const targetUrl = globalThis.location.origin.includes("vouch-ao-balance")
-      ? globalThis.location.origin.replace("vouch-ao-balance", "now")
+    const targetUrl = globalThis.location.origin.includes(
+      "vouch-gitcoin-passport"
+    )
+      ? globalThis.location.origin.replace("vouch-gitcoin-passport", "now")
       : "https://now.g8way.io";
 
     fetch(targetUrl, { method: "HEAD" }).then((res) => {

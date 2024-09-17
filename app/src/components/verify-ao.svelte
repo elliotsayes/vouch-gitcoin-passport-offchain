@@ -1,4 +1,9 @@
 <script>
+  export let signingMessage = {
+    message: "",
+    nonce: "",
+  };
+
   import { address } from "../store.js";
   const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
 

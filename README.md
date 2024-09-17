@@ -1,9 +1,9 @@
-# Vouch-AO-Balance
+# Vouch-Gitcoin-Passport
 
 > [!NOTE]
 > This repo is based on the [Vouch-X](https://github.com/permaweb/vouch-x) project by [Tom Wilson](https://github.com/twilson63).
 
-Vouch-AO-Balance is a service within the VouchDAO ecosystem (https://vouch-dao.g8way.io) that utilizes a wallet's AO balance as a means to verify human users, enhancing security against sybil attacks in permaweb applications. VouchDAO allows various services to vouch for wallet addresses, confirming them as human accounts without revealing private data.
+Vouch-Gitcoin-Passport is a service within the VouchDAO ecosystem (https://vouch-dao.g8way.io) that utilizes an ethereum wallet's Gitcoin Passport as a means to verify human users, enhancing security against sybil attacks in permaweb applications. VouchDAO allows various services to vouch for wallet addresses, confirming them as human accounts without revealing private data.
 
 ## Project Information
 

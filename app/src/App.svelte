@@ -2,7 +2,7 @@
   import { Route, router } from "tinro";
   import Layout from "./components/layout.svelte";
   import Connect from "./components/connect-wallet.svelte";
-  import VerifyAo from "./components/verify-ao.svelte";
+  import VerifyPassport from "./components/verify-ao.svelte";
   import Success from "./components/success.svelte";
   import Ao from "./components/ao.svelte";
   import Nav from "./components/nav.svelte";
@@ -15,8 +15,15 @@
     <Route path="/">
       <Connect />
     </Route>
-    <Route path="/verify-ao">
-      <VerifyAo />
+    <Route
+      path="/verify-passport"
+      let:meta
+    >
+      <VerifyPassport
+        signingMessage={JSON.parse(
+          decodeURIComponent(meta.query.signingMessage)
+        )}
+      />
     </Route>
     <Route
       path="/success"

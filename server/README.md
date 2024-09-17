@@ -1,4 +1,4 @@
-# Vouch-AO-Balance Server
+# Vouch-Gitcoin-Passport Server
 
 This server is a simple service that provides the ability to verify the wallets AO balance and then vouch for approved wallet addresses.
 
