@@ -40,6 +40,6 @@ export function vouch(req, res) {
     })
   }).catch((err) => {
     console.error('Error:', err)
-    res.redirect(callback + '#/error?message=' + 'Error getting balance: ' + err.message)
+    res.redirect(callback + '#/error?message=' + 'Error getting passport: ' + err.message)
   })
 }

@@ -13,7 +13,7 @@ export async function dispatch({ address, value }) {
       { name: 'App-Name', value: 'Vouch' },
       { name: 'Vouch-For', value: address },
       { name: 'App-Version', value: '0.1' },
-      { name: 'Verification-Method', value: 'AO-Balance' }
+      { name: 'Verification-Method', value: 'Gitcoin-Passport' }
     ]
   })
   return { address, transaction: receipt.id, value }

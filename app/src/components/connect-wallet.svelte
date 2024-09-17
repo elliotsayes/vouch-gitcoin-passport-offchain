@@ -17,7 +17,7 @@
 
   async function arweaveApp() {
     const wallet = new ArweaveWebWallet({
-      name: "VouchAoBalance",
+      name: "VouchGitcoinPassport",
     });
     wallet.setUrl("arweave.app");
     await wallet.connect();

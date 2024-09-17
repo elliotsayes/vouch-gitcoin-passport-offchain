@@ -1,4 +1,4 @@
-# VouchAoBalance App
+# Vouch-Gitcoin-Passport App
 
 this app walks through a three step process to "Vouch" a user.
 

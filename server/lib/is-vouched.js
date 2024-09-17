@@ -1,6 +1,5 @@
 import Query from '@irys/query'
-
-const voucherAddress = process.env.VOUCHER_ADDRESS
+import { voucherAddress } from './arweave.js'
 
 export async function isVouched({ address }) {
   const query = new Query()
@@ -10,7 +9,7 @@ export async function isVouched({ address }) {
     .tags([
       { name: 'Data-Protocol', values: 'Vouch' },
       { name: 'Vouch-For', values: address },
-      { name: 'Method', values: 'AO-Balance' },
+      { name: 'Method', values: 'Gitcoin-Passport' },
     ])
   if (results.length > 0) {
     return { ok: true }

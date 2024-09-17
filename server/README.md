@@ -1,6 +1,6 @@
 # Vouch-Gitcoin-Passport Server
 
-This server is a simple service that provides the ability to verify the wallets AO balance and then vouch for approved wallet addresses.
+This server is a simple service that provides the ability to verify an Ethereum wallet's Gitcoin Passport and then vouch for approved Arweave wallet addresses.
 
 ## Deployment
 

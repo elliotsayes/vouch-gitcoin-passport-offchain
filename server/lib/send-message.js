@@ -13,7 +13,7 @@ export async function sendMessage({ address, transaction, value }) {
   const tags = [
     { name: 'Data-Protocol', value: 'Vouch' },
     { name: 'Vouch-For', value: address },
-    { name: 'Method', value: 'AO-Balance' },
+    { name: 'Method', value: 'Gitcoin-Passport' },
     { name: 'Confidence-Value', value: formatValue(value) },
   ];
   console.log("tags: ", tags)

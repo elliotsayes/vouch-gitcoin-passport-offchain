@@ -8,14 +8,24 @@
   const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
   import Onboard from "@web3-onboard/core";
   import injectedModule from "@web3-onboard/injected-wallets";
+  import walletConnectModule from "@web3-onboard/walletconnect";
   import { ethers } from "ethers";
 
   const MAINNET_RPC_URL = "https://mainnet.infura.io/v3/<INFURA_KEY>";
 
   const injected = injectedModule();
 
+  const wcInitOptions = {
+    projectId: import.meta.env.VITE_WALLETCONNECT_PROJECT_ID,
+    requiredChains: [1],
+    dappUrl: import.meta.env.VITE_CLIENT_ADDRESS,
+  };
+
+  // initialize the module with options
+  const walletConnect = walletConnectModule(wcInitOptions);
+
   const onboard = Onboard({
-    wallets: [injected],
+    wallets: [injected, walletConnect],
     chains: [
       {
         id: "0x1",

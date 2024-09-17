@@ -5,6 +5,7 @@ import cors from 'cors'
 import { status } from './routes/status.js'
 import { vouch } from './routes/vouch.js'
 import { signingMessage } from './routes/signingMessage.js'
+import { setup } from './lib/arweave.js'
 
 const app = express()
 
@@ -24,6 +25,8 @@ app.get('/signing-message', signingMessage)
 
 const port = process.env.PORT || 4000;
 
-app.listen(port).on('listening', () => {
-  console.log(`Server is listening on port ${port}`);
+setup().then(() => {
+  app.listen(port).on('listening', () => {
+    console.log(`Server is listening on port ${port}`);
+  })
 })

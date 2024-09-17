@@ -25,6 +25,7 @@
     "@web3-onboard/core": "^2.22.3",
     "@web3-onboard/injected-wallets": "^2.11.2",
     "@web3-onboard/transaction-preview": "^2.1.2",
+    "@web3-onboard/walletconnect": "^2.6.1",
     "arweave-wallet-connector": "^1.0.2",
     "ethers": "^6.13.2"
   }
