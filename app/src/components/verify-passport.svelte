@@ -31,7 +31,7 @@
         id: "0x1",
         token: "ETH",
         label: "Ethereum Mainnet",
-        rpcUrl: MAINNET_RPC_URL,
+        // rpcUrl: MAINNET_RPC_URL,
       },
     ],
   });
