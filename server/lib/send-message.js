@@ -7,13 +7,14 @@ function formatValue(value) {
   return `${value.toFixed(2)}-USD`
 }
 
-export async function sendMessage({ address, transaction, value }) {
+export async function sendMessage({ address, ethAddress, transaction, value }) {
   console.log('SEND TO AOS: ')
   const processId = process.env.VOUCH_DAO_PROCESS_ID || 'L1CWfW_LAWA7UY_zf9CFwbnt3wLuVMEueylFi_1YACo'
   const tags = [
     { name: 'Data-Protocol', value: 'Vouch' },
     { name: 'Vouch-For', value: address },
     { name: 'Method', value: 'Gitcoin-Passport' },
+    { name: 'Identifier', value: ethAddress },
     { name: 'Confidence-Value', value: formatValue(value) },
   ];
   console.log("tags: ", tags)
@@ -30,5 +31,5 @@ export async function sendMessage({ address, transaction, value }) {
   if (res.Error) {
     throw new Error(`Error with Vouch DAO: ${res.Error}`)
   }
-  return { address, transaction, value }
+  return { address, ethAddress, transaction, value }
 }

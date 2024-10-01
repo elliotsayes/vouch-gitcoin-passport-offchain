@@ -29,7 +29,7 @@ export function vouch(req, res) {
     if (confidenceValue < 0.01) {
       return res.redirect(callback + '#/error?message=Insufficient Passport Score')
     }
-    doVouch(arAddress, confidenceValue).then(() => {
+    doVouch(arAddress, ethAddress, confidenceValue).then(() => {
       res.redirect(callback + '#/success?address=' + arAddress)
     }).catch((err) => {
       console.error('Error:', err)
