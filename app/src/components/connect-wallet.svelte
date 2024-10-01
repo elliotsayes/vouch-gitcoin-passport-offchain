@@ -45,29 +45,25 @@
 </script>
 
 <div class="flex-col justify-start items-start gap-[37px] flex">
-  <div class="flex-col justify-start items-start gap-[25px] flex">
-    <div class="w-12 h-12 relative">
-      <svg
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M23 14H3C2.20435 14 1.44129 14.3161 0.87868 14.8787C0.316071 15.4413 0 16.2044 0 17V31C0 31.7956 0.316071 32.5587 0.87868 33.1213C1.44129 33.6839 2.20435 34 3 34H23C23.7956 34 24.5587 33.6839 25.1213 33.1213C25.6839 32.5587 26 31.7956 26 31V17C26 16.2044 25.6839 15.4413 25.1213 14.8787C24.5587 14.3161 23.7956 14 23 14ZM2 20H24V22H17.8988C17.4377 22.0003 16.9909 22.1598 16.634 22.4516C16.2771 22.7433 16.0319 23.1495 15.94 23.6012C15.7999 24.2768 15.4313 24.8833 14.8962 25.3188C14.3612 25.7543 13.6924 25.9921 13.0025 25.9921C12.3126 25.9921 11.6438 25.7543 11.1088 25.3188C10.5737 24.8833 10.2051 24.2768 10.065 23.6012C9.97291 23.1486 9.72701 22.7419 9.36905 22.45C9.01108 22.1581 8.56313 21.9991 8.10125 22H2V20ZM3 16H23C23.2652 16 23.5196 16.1054 23.7071 16.2929C23.8946 16.4804 24 16.7348 24 17V18H2V17C2 16.7348 2.10536 16.4804 2.29289 16.2929C2.48043 16.1054 2.73478 16 3 16ZM23 32H3C2.73478 32 2.48043 31.8946 2.29289 31.7071C2.10536 31.5196 2 31.2652 2 31V24H8.1C8.33012 25.1296 8.94351 26.145 9.83633 26.8743C10.7292 27.6036 11.8466 28.0019 12.9994 28.0019C14.1522 28.0019 15.2696 27.6036 16.1624 26.8743C17.0552 26.145 17.6686 25.1296 17.8988 24H24V31C24 31.2652 23.8946 31.5196 23.7071 31.7071C23.5196 31.8946 23.2652 32 23 32Z"
-          fill="#1E1D22"
-        />
-      </svg>
-    </div>
-    <div class="w-[912px] pb-[23px] justify-center items-center inline-flex">
-      <div
-        class="w-[912px] text-zinc-400 text-[17px] font-normal font-['Satoshi'] tracking-tight"
-      >
-        Connect your Arweave wallet to get yourself vouched using this Vouch
-        service.
-      </div>
-    </div>
+  <div
+    class="flex-col justify-start items-start gap-[25px] flex max-w-screen-sm text-lg"
+  >
+    <h1 class="text-2xl text-gray-900/90">Vouching with Gitcoin Passport</h1>
+    <p>
+      Gitcoin Passport is a proof-of-humanity service for Ethereum that can use
+      blockchain activity, social accounts, and KYC or government IDs to prove
+      humanity.
+    </p>
+    <p>
+      If you haven't done so already, you'll need to set up your Ethereum
+      wallet's passport at
+      <a
+        href="https://passport.gitcoin.co/"
+        target="_blank"
+        referrerpolicy="no-referrer"
+        class="underline text-blue-800">passport.gitcoin.co</a
+      > and earn at least 10 points.
+    </p>
   </div>
 
   <div
