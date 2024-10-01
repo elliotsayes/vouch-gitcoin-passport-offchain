@@ -23,13 +23,13 @@ export async function sendMessage({ address, ethAddress, transaction, value }) {
     tags,
     signer: createDataItemSigner(key)
   })
-  const res = await result({
-    process: processId,
-    message: messageId
-  })
+  // const res = await result({
+  //   process: processId,
+  //   message: messageId
+  // })
+  // if (res.Error) {
+  //   throw new Error(`Error with Vouch DAO: ${res.Error}`)
+  // }
   console.log('messageId', messageId)
-  if (res.Error) {
-    throw new Error(`Error with Vouch DAO: ${res.Error}`)
-  }
   return { address, ethAddress, transaction, value }
 }

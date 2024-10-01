@@ -11,8 +11,8 @@ export function doVouch(address, ethAddress, value) {
     .chain(ctx => fromPromise(isVouched)(ctx)
       .chain(r => r.ok ? Rejected({ message: 'Already vouched!' }) : Resolved(ctx))
     )
-    .chain(fromPromise(dispatch))
     .chain(fromPromise(sendMessage))
-    .chain(fromPromise(writeInteraction))
+    // .chain(fromPromise(dispatch))
+    // .chain(fromPromise(writeInteraction))
     .toPromise()
 }
