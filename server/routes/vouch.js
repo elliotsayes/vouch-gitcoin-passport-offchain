@@ -10,7 +10,7 @@ export function vouch(req, res) {
   const signingSignature = decodeURIComponent(JSON.parse(req.query.signingSignature));
   const callback = req.query.callback;
   console.log('Vouching for Ar Address:', arAddress)
-  console.log('Vouch using Eth Address:', arAddress)
+  console.log('Vouch using Eth Address:', ethAddress)
   console.log('Signing Signature:', signingSignature)
   console.log('Callback:', callback)
 

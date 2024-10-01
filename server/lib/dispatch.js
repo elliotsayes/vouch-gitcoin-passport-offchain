@@ -3,7 +3,7 @@ import fs from 'fs'
 
 const key = JSON.parse(fs.readFileSync(process.env.WALLET, 'utf-8'))
 
-export async function dispatch({ address, value }) {
+export async function dispatch({ address, ethAddress, value }) {
   const url = process.env.IRYS_NODE || 'https://turbo.ardrive.io'
   const token = 'arweave'
   const irys = new Irys({ url, token, key })
@@ -16,5 +16,5 @@ export async function dispatch({ address, value }) {
       { name: 'Verification-Method', value: 'Gitcoin-Passport' }
     ]
   })
-  return { address, transaction: receipt.id, value }
+  return { address, ethAddress, transaction: receipt.id, value }
 }
